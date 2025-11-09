@@ -10,7 +10,10 @@ interface HeroSliderProps {
 const HeroSlider = ({ onNavigateCreative, onNavigateDigital }: HeroSliderProps) => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
+  const creativeCharRef = useRef<HTMLDivElement>(null);
+  const digitalCharRef = useRef<HTMLDivElement>(null);
   const hasIntroPlayed = useRef(false);
 
   useEffect(() => {
@@ -40,6 +43,8 @@ const HeroSlider = ({ onNavigateCreative, onNavigateDigital }: HeroSliderProps) 
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+      
       if (!isDragging || !containerRef.current) return;
       e.preventDefault();
       const rect = containerRef.current.getBoundingClientRect();
@@ -57,8 +62,9 @@ const HeroSlider = ({ onNavigateCreative, onNavigateDigital }: HeroSliderProps) 
 
     const handleEnd = () => setIsDragging(false);
 
+    document.addEventListener("mousemove", handleMouseMove);
+    
     if (isDragging) {
-      document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("touchmove", handleTouchMove, { passive: false });
       document.addEventListener("mouseup", handleEnd);
       document.addEventListener("touchend", handleEnd);
@@ -71,6 +77,24 @@ const HeroSlider = ({ onNavigateCreative, onNavigateDigital }: HeroSliderProps) 
       document.removeEventListener("touchend", handleEnd);
     };
   }, [isDragging]);
+
+  const calculateEyePosition = (charRef: React.RefObject<HTMLDivElement>) => {
+    if (!charRef.current) return { x: 0, y: 0 };
+    
+    const rect = charRef.current.getBoundingClientRect();
+    const charCenterX = rect.left + rect.width / 2;
+    const charCenterY = rect.top + rect.height / 2;
+    
+    const deltaX = mousePosition.x - charCenterX;
+    const deltaY = mousePosition.y - charCenterY;
+    const angle = Math.atan2(deltaY, deltaX);
+    const distance = Math.min(Math.sqrt(deltaX * deltaX + deltaY * deltaY) / 50, 8);
+    
+    return {
+      x: Math.cos(angle) * distance,
+      y: Math.sin(angle) * distance,
+    };
+  };
 
   return (
     <div ref={containerRef} className="relative w-full h-screen overflow-hidden select-none">
@@ -97,9 +121,43 @@ const HeroSlider = ({ onNavigateCreative, onNavigateDigital }: HeroSliderProps) 
         </div>
 
         {/* Filmmaker Character */}
-        <div className="hidden lg:block absolute left-[30%] top-1/2 -translate-y-1/2 w-48 h-64">
+        <div ref={creativeCharRef} className="hidden lg:block absolute left-[30%] top-1/2 -translate-y-1/2 w-48 h-64">
           <div className="animate-[float_6s_ease-in-out_infinite]">
-            {/* Character icons */}
+            {/* Character SVG */}
+            <svg viewBox="0 0 200 280" className="w-full h-full">
+              {/* Head */}
+              <circle cx="100" cy="80" r="45" fill="hsl(var(--skin-tone))" />
+              {/* Hair */}
+              <path d="M 65 60 Q 55 40 65 30 Q 80 25 100 25 Q 120 25 135 30 Q 145 40 135 60 Z" fill="hsl(var(--hair-dark))" />
+              {/* Body */}
+              <rect x="70" y="120" width="60" height="80" rx="8" fill="hsl(var(--suit-gray))" />
+              {/* Arms */}
+              <rect x="45" y="130" width="25" height="60" rx="12" fill="hsl(var(--skin-tone))" />
+              <rect x="130" y="130" width="25" height="60" rx="12" fill="hsl(var(--skin-tone))" />
+              {/* Eyes with tracking */}
+              <g>
+                <ellipse cx="85" cy="75" rx="8" ry="12" fill="white" />
+                <ellipse cx="115" cy="75" rx="8" ry="12" fill="white" />
+                <circle 
+                  cx={85 + calculateEyePosition(creativeCharRef).x} 
+                  cy={75 + calculateEyePosition(creativeCharRef).y} 
+                  r="4" 
+                  fill="hsl(var(--creative-bg))"
+                  className="transition-all duration-100 ease-out"
+                />
+                <circle 
+                  cx={115 + calculateEyePosition(creativeCharRef).x} 
+                  cy={75 + calculateEyePosition(creativeCharRef).y} 
+                  r="4" 
+                  fill="hsl(var(--creative-bg))"
+                  className="transition-all duration-100 ease-out"
+                />
+              </g>
+              {/* Mouth */}
+              <path d="M 85 95 Q 100 102 115 95" stroke="hsl(var(--creative-bg))" strokeWidth="2" fill="none" />
+            </svg>
+            
+            {/* Floating icons */}
             <div className="absolute top-0 left-0 animate-[float-icon_8s_ease-in-out_infinite]">
               <Camera className="w-8 h-8" />
             </div>
@@ -142,9 +200,50 @@ const HeroSlider = ({ onNavigateCreative, onNavigateDigital }: HeroSliderProps) 
         </div>
 
         {/* Business Character */}
-        <div className="hidden lg:block absolute right-[30%] top-1/2 -translate-y-1/2 w-48 h-64">
+        <div ref={digitalCharRef} className="hidden lg:block absolute right-[30%] top-1/2 -translate-y-1/2 w-48 h-64">
           <div className="animate-[float_6s_ease-in-out_infinite]">
-            {/* Character icons */}
+            {/* Character SVG */}
+            <svg viewBox="0 0 200 280" className="w-full h-full">
+              {/* Head */}
+              <circle cx="100" cy="80" r="45" fill="hsl(var(--skin-tone))" />
+              {/* Hair */}
+              <path d="M 60 65 Q 55 35 75 28 Q 90 25 100 25 Q 110 25 125 28 Q 145 35 140 65 Z" fill="hsl(var(--hair-dark))" />
+              {/* Body - Business Suit */}
+              <rect x="70" y="120" width="60" height="90" rx="8" fill="hsl(var(--suit-gray))" />
+              {/* Shirt */}
+              <path d="M 85 125 L 85 200 L 100 200 L 115 200 L 115 125 Z" fill="hsl(var(--shirt-light))" />
+              {/* Tie */}
+              <path d="M 97 125 L 92 155 L 100 180 L 108 155 L 103 125 Z" fill="hsl(var(--tie-red))" />
+              {/* Arms */}
+              <rect x="45" y="130" width="25" height="65" rx="12" fill="hsl(var(--suit-gray))" />
+              <rect x="130" y="130" width="25" height="65" rx="12" fill="hsl(var(--suit-gray))" />
+              {/* Hands */}
+              <circle cx="57" cy="200" r="10" fill="hsl(var(--skin-tone))" />
+              <circle cx="143" cy="200" r="10" fill="hsl(var(--skin-tone))" />
+              {/* Eyes with tracking */}
+              <g>
+                <ellipse cx="85" cy="75" rx="8" ry="12" fill="white" />
+                <ellipse cx="115" cy="75" rx="8" ry="12" fill="white" />
+                <circle 
+                  cx={85 + calculateEyePosition(digitalCharRef).x} 
+                  cy={75 + calculateEyePosition(digitalCharRef).y} 
+                  r="4" 
+                  fill="hsl(var(--digital-fg))"
+                  className="transition-all duration-100 ease-out"
+                />
+                <circle 
+                  cx={115 + calculateEyePosition(digitalCharRef).x} 
+                  cy={75 + calculateEyePosition(digitalCharRef).y} 
+                  r="4" 
+                  fill="hsl(var(--digital-fg))"
+                  className="transition-all duration-100 ease-out"
+                />
+              </g>
+              {/* Smile */}
+              <path d="M 85 95 Q 100 105 115 95" stroke="hsl(var(--digital-fg))" strokeWidth="2" fill="none" />
+            </svg>
+            
+            {/* Floating icons */}
             <div className="absolute top-[10%] left-[-10%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-0.5s]">
               <Briefcase className="w-10 h-10" />
             </div>
