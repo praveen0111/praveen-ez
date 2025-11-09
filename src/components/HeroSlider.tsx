@@ -236,16 +236,16 @@ const HeroSlider = ({
               <Database className="w-9 h-9 my-0 mx-[350px]" />
             </div>
             <div className="absolute top-[55%] right-[-10%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-5.5s]">
-              <LineChart className="w-9 h-9" />
+              <LineChart className="w-9 h-9 mx-[100px] my-[50px]" />
             </div>
             <div className="absolute bottom-[35%] left-[-5%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-6.5s]">
               <Globe className="w-9 h-9 my-0 mx-[380px]" />
             </div>
             <div className="absolute top-[75%] right-[-20%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-7.5s]">
-              <Rocket className="w-8 h-8" />
+              <Rocket className="w-8 h-8 mx-px" />
             </div>
             <div className="absolute bottom-[55%] right-[-25%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-1s]">
-              <Lightbulb className="w-9 h-9" />
+              <Lightbulb className="w-9 h-9 mx-[150px]" />
             </div>
             <div className="absolute top-[25%] left-[-25%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-8s]">
               <Code className="w-9 h-9 my-0 mx-[420px]" />
