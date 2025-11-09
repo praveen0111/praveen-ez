@@ -221,34 +221,34 @@ const HeroSlider = ({
             
             {/* Floating icons */}
             <div className="absolute top-[10%] left-[-10%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-0.5s]">
-              <Briefcase className="w-10 h-10 my-px mx-[300px]" />
+              <Briefcase className="w-10 h-10" />
             </div>
             <div className="absolute top-[15%] right-[-15%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-2.5s]">
               <TrendingUp className="w-10 h-10" />
             </div>
             <div className="absolute bottom-14 left-[-20%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-4.5s]">
-              <Cpu className="w-10 h-10 my-0 mx-[400px]" />
+              <Cpu className="w-10 h-10" />
             </div>
             <div className="absolute bottom-6 right-[-5%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-1.5s]">
               <BarChart2 className="w-10 h-10" />
             </div>
             <div className="absolute top-[35%] left-[-15%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-3.5s]">
-              <Database className="w-9 h-9 my-0 mx-[350px]" />
+              <Database className="w-9 h-9" />
             </div>
             <div className="absolute top-[55%] right-[-10%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-5.5s]">
-              <LineChart className="w-9 h-9 mx-[100px] my-[50px]" />
+              <LineChart className="w-9 h-9" />
             </div>
             <div className="absolute bottom-[35%] left-[-5%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-6.5s]">
-              <Globe className="w-9 h-9 my-0 mx-[380px]" />
+              <Globe className="w-9 h-9" />
             </div>
             <div className="absolute top-[75%] right-[-20%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-7.5s]">
-              <Rocket className="w-8 h-8 mx-px" />
+              <Rocket className="w-8 h-8" />
             </div>
             <div className="absolute bottom-[55%] right-[-25%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-1s]">
-              <Lightbulb className="w-9 h-9 mx-[150px]" />
+              <Lightbulb className="w-9 h-9" />
             </div>
             <div className="absolute top-[25%] left-[-25%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-8s]">
-              <Code className="w-9 h-9 my-0 mx-[420px]" />
+              <Code className="w-9 h-9" />
             </div>
           </div>
         </div>
