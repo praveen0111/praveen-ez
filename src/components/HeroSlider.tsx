@@ -206,7 +206,7 @@ const HeroSlider = ({
             
             {/* Floating icons */}
             <div className="absolute top-[10%] left-[-10%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-0.5s]">
-              <Briefcase className="w-10 h-10" />
+              <Briefcase className="w-10 h-10 my-px mx-[300px]" />
             </div>
             <div className="absolute top-[15%] right-[-15%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-2.5s]">
               <TrendingUp className="w-10 h-10" />
