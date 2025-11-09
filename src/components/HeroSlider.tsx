@@ -212,7 +212,7 @@ const HeroSlider = ({
               <TrendingUp className="w-10 h-10" />
             </div>
             <div className="absolute bottom-14 left-[-20%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-4.5s]">
-              <Cpu className="w-10 h-10" />
+              <Cpu className="w-10 h-10 my-0 mx-[400px]" />
             </div>
             <div className="absolute bottom-6 right-[-5%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-1.5s]">
               <BarChart2 className="w-10 h-10" />
