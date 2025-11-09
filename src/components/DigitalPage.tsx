@@ -1,34 +1,24 @@
 import { Button } from "./ui/button";
-
 interface DigitalPageProps {
   onGoHome: () => void;
   onSwitchToCreative: () => void;
 }
-
-const DigitalPage = ({ onGoHome, onSwitchToCreative }: DigitalPageProps) => {
-  return (
-    <div className="min-h-screen bg-[hsl(var(--digital-bg))] text-[hsl(var(--digital-fg))] animate-[fadeIn_0.5s_ease-in-out]">
+const DigitalPage = ({
+  onGoHome,
+  onSwitchToCreative
+}: DigitalPageProps) => {
+  return <div className="min-h-screen bg-[hsl(var(--digital-bg))] text-[hsl(var(--digital-fg))] animate-[fadeIn_0.5s_ease-in-out]">
       <section className="py-20">
         <div className="container mx-auto px-6">
           {/* Navigation */}
           <div className="flex justify-center items-center flex-wrap gap-4 mb-12">
-            <Button 
-              onClick={onGoHome}
-              variant="ghost"
-              className="text-gray-600 hover:text-black transition-colors font-semibold"
-            >
+            <Button onClick={onGoHome} variant="ghost" className="text-gray-600 hover:text-black transition-colors font-semibold">
               Home
             </Button>
-            <Button 
-              onClick={onSwitchToCreative}
-              className="bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors"
-            >
+            <Button onClick={onSwitchToCreative} className="bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors">
               View Creative Work
             </Button>
-            <a 
-              href="mailto:praveenchezhian1@gmail.com"
-              className="bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors inline-block"
-            >
+            <a href="mailto:praveenchezhian1@gmail.com" className="bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors inline-block">
               Contact
             </a>
           </div>
@@ -37,11 +27,7 @@ const DigitalPage = ({ onGoHome, onSwitchToCreative }: DigitalPageProps) => {
             {/* Profile Intro */}
             <div className="flex flex-col md:flex-row items-center text-center md:text-left gap-8 mb-16">
               <div className="w-48 h-48 rounded-full overflow-hidden bg-gray-200 flex-shrink-0 shadow-lg">
-                <img 
-                  src="https://placehold.co/200x200/e5e7eb/4b5563?text=PE" 
-                  alt="Praveen Elanchezhian - Professional headshot" 
-                  className="w-full h-full object-cover"
-                />
+                <img src="https://placehold.co/200x200/e5e7eb/4b5563?text=PE" alt="Praveen Elanchezhian - Professional headshot" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h2 className="text-4xl font-bold">Praveen Elanchezhian</h2>
@@ -85,9 +71,7 @@ const DigitalPage = ({ onGoHome, onSwitchToCreative }: DigitalPageProps) => {
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <h4 className="text-xl font-bold">
-                  Summer Intern - Brand-Aligned Marketing Strategies
-                </h4>
+                <h4 className="text-xl font-bold">Summer Intern: Brand-Aligned Marketing Strategies</h4>
                 <p className="text-gray-500 italic">Madarth (May 2025 - Jul 2025)</p>
                 <ul className="list-disc list-inside text-gray-700 mt-2 space-y-1">
                   <li>
@@ -108,8 +92,6 @@ const DigitalPage = ({ onGoHome, onSwitchToCreative }: DigitalPageProps) => {
           <p>&copy; 2025 Praveen Elanchezhian. All Rights Reserved.</p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default DigitalPage;
