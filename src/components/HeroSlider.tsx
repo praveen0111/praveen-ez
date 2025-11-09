@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Camera, Film, Clapperboard, Briefcase, TrendingUp, Cpu, BarChart2, ChevronLeft, ChevronRight } from "lucide-react";
+import { Camera, Film, Clapperboard, Briefcase, TrendingUp, Cpu, BarChart2, ChevronLeft, ChevronRight, Video, Palette, Scissors, Music, Globe, Database, LineChart, Rocket, Lightbulb, Code } from "lucide-react";
 import { Button } from "./ui/button";
 interface HeroSliderProps {
   onNavigateCreative: () => void;
@@ -151,6 +151,21 @@ const HeroSlider = ({
             <div className="absolute top-[60%] left-[-10%] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-5s]">
               <Clapperboard className="w-8 h-8" />
             </div>
+            <div className="absolute top-[25%] left-[-25%] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-4s]">
+              <Video className="w-8 h-8" />
+            </div>
+            <div className="absolute bottom-[30%] right-[-10%] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-6s]">
+              <Palette className="w-8 h-8" />
+            </div>
+            <div className="absolute top-[45%] right-[-20%] w-12 h-12 rounded-full bg-[hsl(var(--photoshop))] flex items-center justify-center text-white font-extrabold text-xl border-2 border-white/50 animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-2.5s]">
+              Ps
+            </div>
+            <div className="absolute bottom-[50%] left-[-15%] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-7s]">
+              <Scissors className="w-8 h-8" />
+            </div>
+            <div className="absolute top-[80%] right-[-5%] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-3.5s]">
+              <Music className="w-7 h-7" />
+            </div>
           </div>
         </div>
       </div>
@@ -216,6 +231,24 @@ const HeroSlider = ({
             </div>
             <div className="absolute bottom-6 right-[-5%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-1.5s]">
               <BarChart2 className="w-10 h-10" />
+            </div>
+            <div className="absolute top-[35%] left-[-15%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-3.5s]">
+              <Database className="w-9 h-9 my-0 mx-[350px]" />
+            </div>
+            <div className="absolute top-[55%] right-[-10%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-5.5s]">
+              <LineChart className="w-9 h-9" />
+            </div>
+            <div className="absolute bottom-[35%] left-[-5%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-6.5s]">
+              <Globe className="w-9 h-9 my-0 mx-[380px]" />
+            </div>
+            <div className="absolute top-[75%] right-[-20%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-7.5s]">
+              <Rocket className="w-8 h-8" />
+            </div>
+            <div className="absolute bottom-[55%] right-[-25%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-1s]">
+              <Lightbulb className="w-9 h-9" />
+            </div>
+            <div className="absolute top-[25%] left-[-25%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-8s]">
+              <Code className="w-9 h-9 my-0 mx-[420px]" />
             </div>
           </div>
         </div>

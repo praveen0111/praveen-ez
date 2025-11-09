@@ -32,6 +32,7 @@ All colors MUST be HSL.
     /* Software Logo Colors */
     --premiere: 267 55% 53%;
     --after-effects: 266 44% 47%;
+    --photoshop: 206 100% 50%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
