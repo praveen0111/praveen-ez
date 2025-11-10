@@ -1,9 +1,10 @@
 import { useState } from "react";
 import HeroSlider from "@/components/HeroSlider";
-import CreativePage from "@/components/CreativePage";
-import DigitalPage from "@/components/DigitalPage";
+import CreativePageEnhanced from "@/components/CreativePageEnhanced";
+import DigitalPageEnhanced from "@/components/DigitalPageEnhanced";
+import ContactPage from "@/components/ContactPage";
 
-type PageView = "home" | "creative" | "digital";
+type PageView = "home" | "creative" | "digital" | "contact";
 
 const Index = () => {
   const [currentView, setCurrentView] = useState<PageView>("home");
@@ -23,6 +24,11 @@ const Index = () => {
     window.scrollTo(0, 0);
   };
 
+  const handleNavigateToContact = () => {
+    setCurrentView("contact");
+    window.scrollTo(0, 0);
+  };
+
   return (
     <main className="min-h-screen">
       {currentView === "home" && (
@@ -33,16 +39,24 @@ const Index = () => {
       )}
       
       {currentView === "creative" && (
-        <CreativePage 
+        <CreativePageEnhanced 
           onGoHome={handleGoHome}
           onSwitchToDigital={handleNavigateDigital}
+          onNavigateToContact={handleNavigateToContact}
         />
       )}
       
       {currentView === "digital" && (
-        <DigitalPage 
+        <DigitalPageEnhanced 
           onGoHome={handleGoHome}
           onSwitchToCreative={handleNavigateCreative}
+          onNavigateToContact={handleNavigateToContact}
+        />
+      )}
+
+      {currentView === "contact" && (
+        <ContactPage 
+          onGoHome={handleGoHome}
         />
       )}
     </main>

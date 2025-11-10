@@ -12,18 +12,20 @@ All colors MUST be HSL.
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     
-    /* Creative Section (Dark) */
-    --creative-bg: 222 47% 11%;
-    --creative-fg: 214 32% 82%;
-    --creative-accent: 220 13% 18%;
+    /* Creative Section (Dark) - Enhanced vibrancy */
+    /* EDIT COLORS: Adjust these HSL values for creative side theme */
+    --creative-bg: 240 60% 12%;  /* Deep navy-blue for dramatic effect */
+    --creative-fg: 48 96% 89%;   /* Warm light text for contrast */
+    --creative-accent: 330 85% 55%; /* Vibrant magenta accent */
     
-    /* Digital Section (Light) */
-    --digital-bg: 210 20% 98%;
-    --digital-fg: 222 47% 11%;
-    --digital-accent: 0 73% 50%;
+    /* Digital Section (Light) - Enhanced vibrancy */
+    /* EDIT COLORS: Adjust these HSL values for digital side theme */
+    --digital-bg: 200 25% 97%;    /* Clean light background */
+    --digital-fg: 240 60% 12%;    /* Dark text for readability */
+    --digital-accent: 210 100% 50%; /* Bright blue accent */
     
     /* Character Colors */
-    --skin-tone: 215 25% 90%;
+    --skin-tone: 30 100% 86%;     /* Warmer skin tone */
     --hair-dark: 220 26% 14%;
     --suit-gray: 215 25% 27%;
     --shirt-light: 210 20% 94%;
@@ -33,6 +35,11 @@ All colors MUST be HSL.
     --premiere: 267 55% 53%;
     --after-effects: 266 44% 47%;
     --photoshop: 206 100% 50%;
+    
+    /* Hover & Interactive States */
+    /* EDIT THESE: Customize hover effects for tiles */
+    --tile-hover-bg: 330 85% 65%;
+    --tile-hover-shadow: 330 85% 55%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -49,7 +56,7 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 0 73% 50%;
+    --accent: 330 85% 55%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -64,11 +71,22 @@ All colors MUST be HSL.
 }
 
 /* Portfolio-specific animations */
+
+/* Character blink animation - Makes characters feel alive */
+/* EDIT TIMING: Adjust duration (currently 4s) to change blink frequency */
+/* EDIT EFFECT: Modify opacity values to change blink intensity */
+@keyframes blink {
+  0%, 90%, 100% { opacity: 1; }  /* Eyes open most of the time */
+  93%, 97% { opacity: 0; }       /* Quick blink */
+}
+
+/* Float animation for characters */
 @keyframes float {
   0%, 100% { transform: translate(-50%, -50%); }
   50% { transform: translate(-50%, -47%); }
 }
 
+/* Floating icon animation */
 @keyframes float-icon {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-25px) rotate(15deg); }
@@ -83,6 +101,40 @@ All colors MUST be HSL.
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* Slider divider pulse animation - Makes divider more noticeable */
+/* EDIT GLOW: Change shadow size/color for different glow effects */
+@keyframes divider-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px hsl(var(--creative-accent)), 0 0 40px hsl(var(--creative-accent) / 0.5);
+  }
+  50% { 
+    box-shadow: 0 0 30px hsl(var(--creative-accent)), 0 0 60px hsl(var(--creative-accent) / 0.7);
+  }
+}
+
+/* Carousel slide animation */
+@keyframes slide-in {
+  from { 
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  from { 
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to { 
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 }
 
 @layer base {

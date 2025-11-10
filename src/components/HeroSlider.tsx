@@ -124,8 +124,10 @@ const HeroSlider = ({
               {/* Arms */}
               <rect x="45" y="130" width="25" height="60" rx="12" fill="hsl(var(--skin-tone))" />
               <rect x="130" y="130" width="25" height="60" rx="12" fill="hsl(var(--skin-tone))" />
-              {/* Eyes with tracking */}
-              <g>
+              {/* Eyes with tracking and blinking animation */}
+              {/* BLINKING EFFECT: The animation makes characters feel alive */}
+              {/* TO ADJUST: Modify animation duration in index.css @keyframes blink */}
+              <g className="animate-[blink_4s_ease-in-out_infinite]">
                 <ellipse cx="85" cy="75" rx="8" ry="12" fill="white" />
                 <ellipse cx="115" cy="75" rx="8" ry="12" fill="white" />
                 <circle cx={85 + calculateEyePosition(creativeCharRef).x} cy={75 + calculateEyePosition(creativeCharRef).y} r="4" fill="hsl(var(--creative-bg))" className="transition-all duration-100 ease-out" />
@@ -208,8 +210,10 @@ const HeroSlider = ({
               {/* Hands */}
               <circle cx="57" cy="200" r="10" fill="hsl(var(--skin-tone))" />
               <circle cx="143" cy="200" r="10" fill="hsl(var(--skin-tone))" />
-              {/* Eyes with tracking */}
-              <g>
+              {/* Eyes with tracking and blinking animation */}
+              {/* BLINKING EFFECT: The animation makes characters feel alive */}
+              {/* TO ADJUST: Modify animation duration in index.css @keyframes blink */}
+              <g className="animate-[blink_4s_ease-in-out_infinite]">
                 <ellipse cx="85" cy="75" rx="8" ry="12" fill="white" />
                 <ellipse cx="115" cy="75" rx="8" ry="12" fill="white" />
                 <circle cx={85 + calculateEyePosition(digitalCharRef).x} cy={75 + calculateEyePosition(digitalCharRef).y} r="4" fill="hsl(var(--digital-fg))" className="transition-all duration-100 ease-out" />
@@ -254,14 +258,25 @@ const HeroSlider = ({
         </div>
       </div>
 
-      {/* Slider Handle */}
-      <div className="absolute top-0 w-1 h-full bg-[hsl(var(--creative-accent))] cursor-grab active:cursor-grabbing z-10" style={{
-      left: `${sliderPosition}%`,
-      transform: 'translateX(-50%)'
-    }} onMouseDown={() => setIsDragging(true)} onTouchStart={() => setIsDragging(true)}>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-[hsl(var(--creative-accent))] rounded-full flex items-center justify-between px-2 shadow-lg">
+      {/* Enhanced Slider Handle with gradient and glow */}
+      {/* CUSTOMIZE DIVIDER: */}
+      {/* - Change width (w-*) for thickness */}
+      {/* - Adjust gradient colors in bg-gradient-to-b */}
+      {/* - Modify animation duration in animate-[divider-pulse_*] */}
+      {/* - Edit glow colors in @keyframes divider-pulse in index.css */}
+      <div 
+        className="absolute top-0 w-2 h-full cursor-grab active:cursor-grabbing z-10 bg-gradient-to-b from-[hsl(var(--creative-accent))] via-[hsl(var(--digital-accent))] to-[hsl(var(--creative-accent))] animate-[divider-pulse_2s_ease-in-out_infinite]" 
+        style={{
+          left: `${sliderPosition}%`,
+          transform: 'translateX(-50%)'
+        }} 
+        onMouseDown={() => setIsDragging(true)} 
+        onTouchStart={() => setIsDragging(true)}
+      >
+        {/* Draggable handle circle */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-gradient-to-br from-[hsl(var(--creative-accent))] to-[hsl(var(--digital-accent))] rounded-full flex items-center justify-between px-2 shadow-xl border-2 border-white/30">
           <ChevronLeft className="w-5 h-5 text-white" />
-          <ChevronRight className="w-5 h-5 text-gray-300" />
+          <ChevronRight className="w-5 h-5 text-white/90" />
         </div>
       </div>
     </div>;

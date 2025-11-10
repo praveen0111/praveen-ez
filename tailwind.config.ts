@@ -80,6 +80,18 @@ export default {
             height: "0",
           },
         },
+        blink: {
+          "0%, 90%, 100%": { opacity: "1" },
+          "93%, 97%": { opacity: "0" },
+        },
+        "divider-pulse": {
+          "0%, 100%": {
+            boxShadow: "0 0 20px hsl(var(--creative-accent)), 0 0 40px hsl(var(--creative-accent) / 0.5)",
+          },
+          "50%": {
+            boxShadow: "0 0 30px hsl(var(--creative-accent)), 0 0 60px hsl(var(--creative-accent) / 0.7)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -88,6 +100,8 @@ export default {
         "float-icon": "float-icon 8s ease-in-out infinite",
         wiggle: "wiggle 0.5s ease-in-out infinite",
         fadeIn: "fadeIn 0.5s ease-in-out",
+        blink: "blink 4s ease-in-out infinite",
+        "divider-pulse": "divider-pulse 2s ease-in-out infinite",
       },
     },
   },
