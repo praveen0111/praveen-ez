@@ -105,7 +105,7 @@ const HeroSlider = ({
           <p className="mt-6 text-base leading-relaxed max-w-md ml-auto">
             Filmmaker with a passion for visual storytelling and expertise in editing and post-production workflow.
           </p>
-          <Button onClick={onNavigateCreative} variant="outline" className="mt-8 border-2 border-[hsl(var(--creative-fg))] text-[hsl(var(--creative-fg))] hover:bg-[hsl(var(--creative-fg))] hover:text-[hsl(var(--creative-bg))] rounded-full px-6 py-6 font-semibold transition-all">
+          <Button onClick={onNavigateCreative} variant="outline" className="mt-8 border-2 border-[hsl(var(--creative-fg))] text-[hsl(var(--creative-fg))] hover:bg-[hsl(var(--creative-fg))] hover:text-[hsl(var(--creative-bg))] rounded-full px-6 py-6 font-semibold transition-all text-indigo-950">
             Explore My Work
           </Button>
         </div>
@@ -178,9 +178,7 @@ const HeroSlider = ({
     }}>
         <div className="max-w-[500px] w-full px-8 md:px-16 text-left">
           <div className="font-bold text-xl mb-8">PE.</div>
-          <h1 className="font-extrabold text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-none uppercase tracking-tight text-[hsl(var(--digital-accent))]">
-            Digital
-          </h1>
+          <h1 className="font-extrabold text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-none uppercase tracking-tight text-[hsl(var(--digital-accent))]">CREATE</h1>
           <p className="mt-6 text-base leading-relaxed max-w-md">
             MBA candidate specializing in the intersection of technology, marketing, and product design.
           </p>
@@ -264,15 +262,10 @@ const HeroSlider = ({
       {/* - Adjust gradient colors in bg-gradient-to-b */}
       {/* - Modify animation duration in animate-[divider-pulse_*] */}
       {/* - Edit glow colors in @keyframes divider-pulse in index.css */}
-      <div 
-        className="absolute top-0 w-2 h-full cursor-grab active:cursor-grabbing z-10 bg-gradient-to-b from-[hsl(var(--creative-accent))] via-[hsl(var(--digital-accent))] to-[hsl(var(--creative-accent))] animate-[divider-pulse_2s_ease-in-out_infinite]" 
-        style={{
-          left: `${sliderPosition}%`,
-          transform: 'translateX(-50%)'
-        }} 
-        onMouseDown={() => setIsDragging(true)} 
-        onTouchStart={() => setIsDragging(true)}
-      >
+      <div className="absolute top-0 w-2 h-full cursor-grab active:cursor-grabbing z-10 bg-gradient-to-b from-[hsl(var(--creative-accent))] via-[hsl(var(--digital-accent))] to-[hsl(var(--creative-accent))] animate-[divider-pulse_2s_ease-in-out_infinite]" style={{
+      left: `${sliderPosition}%`,
+      transform: 'translateX(-50%)'
+    }} onMouseDown={() => setIsDragging(true)} onTouchStart={() => setIsDragging(true)}>
         {/* Draggable handle circle */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-gradient-to-br from-[hsl(var(--creative-accent))] to-[hsl(var(--digital-accent))] rounded-full flex items-center justify-between px-2 shadow-xl border-2 border-white/30">
           <ChevronLeft className="w-5 h-5 text-white" />
