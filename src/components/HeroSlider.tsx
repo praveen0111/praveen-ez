@@ -248,7 +248,7 @@ const HeroSlider = ({
             <div className="absolute top-[75%] right-[-20%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-7.5s]">
               <Rocket className="w-8 h-8" />
             </div>
-            <div className="absolute bottom-[55%] right-[-25%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-1s]">
+            <div className="absolute bottom-[55%] right-[-35%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-1s]">
               <Lightbulb className="w-9 h-9" />
             </div>
             <div className="absolute top-[25%] left-[-25%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-8s]">
