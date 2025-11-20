@@ -222,70 +222,45 @@ const HeroSlider = ({
             </svg>
             
             {/* Floating icons - Positioned to avoid character overlap */}
-            {/* Character center is roughly at the middle, icons are placed outside the character bounds */}
+            {/* MOBILE ANIMATIONS: Icons use pulse/rotate on mobile (lg:animate-float-icon for desktop) */}
+            {/* TO CUSTOMIZE: Change animation classes or add more icons below */}
             
             {/* TOP LEFT QUADRANT */}
-            <div className="absolute top-[5%] left-[-30%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-0.5s]">
+            <div className="absolute top-[5%] left-[-30%] text-[hsl(var(--creative-accent))] animate-[mobile-icon-pulse_3s_ease-in-out_infinite] lg:animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-0.5s]">
               <Briefcase className="w-10 h-10" />
             </div>
-            <div className="absolute top-[25%] left-[-35%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-8s]">
+            <div className="absolute top-[25%] left-[-35%] text-[hsl(var(--creative-accent))] animate-[mobile-icon-rotate_4s_ease-in-out_infinite] lg:animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-1s]">
               <Code className="w-9 h-9" />
             </div>
-            <div className="absolute top-[45%] left-[-30%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-3.5s]">
+            <div className="absolute top-[45%] left-[-30%] text-[hsl(var(--creative-accent))] animate-[mobile-icon-pulse_3.5s_ease-in-out_infinite] lg:animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-1.5s]">
               <Database className="w-9 h-9" />
             </div>
             
             {/* TOP RIGHT QUADRANT */}
-            <div className="absolute top-[8%] right-[-30%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-2.5s]">
+            <div className="absolute top-[8%] right-[-30%] text-[hsl(var(--creative-accent))] animate-[mobile-icon-rotate_3.8s_ease-in-out_infinite] lg:animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-2s]">
               <TrendingUp className="w-10 h-10" />
             </div>
-            <div className="absolute top-[28%] right-[-40%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-5.5s]">
+            <div className="absolute top-[28%] right-[-40%] text-[hsl(var(--creative-accent))] animate-[mobile-icon-pulse_4s_ease-in-out_infinite] lg:animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-2.5s]">
               <LineChart className="w-9 h-9" />
             </div>
-            <div className="absolute top-[48%] right-[-35%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-1s]">
+            <div className="absolute top-[48%] right-[-35%] text-[hsl(var(--creative-accent))] animate-[mobile-icon-rotate_3.2s_ease-in-out_infinite] lg:animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-3s]">
               <Lightbulb className="w-9 h-9" />
             </div>
             
             {/* BOTTOM LEFT QUADRANT */}
-            <div className="absolute bottom-[40%] left-[-25%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-6.5s]">
+            <div className="absolute bottom-[40%] left-[-25%] text-[hsl(var(--creative-accent))] animate-[mobile-icon-pulse_3.3s_ease-in-out_infinite] lg:animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-3.5s]">
               <Globe className="w-9 h-9" />
             </div>
-            <div className="absolute bottom-[20%] left-[-35%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-4.5s]">
+            <div className="absolute bottom-[20%] left-[-35%] text-[hsl(var(--creative-accent))] animate-[mobile-icon-rotate_4.2s_ease-in-out_infinite] lg:animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-4s]">
               <Cpu className="w-10 h-10" />
-            </div>
-            <div className="absolute bottom-[5%] left-[-28%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-9s]">
-              <Target className="w-9 h-9" />
             </div>
             
             {/* BOTTOM RIGHT QUADRANT */}
-            <div className="absolute bottom-[35%] right-[-30%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-1.5s]">
+            <div className="absolute bottom-[35%] right-[-30%] text-[hsl(var(--creative-accent))] animate-[mobile-icon-pulse_3.7s_ease-in-out_infinite] lg:animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-4.5s]">
               <BarChart2 className="w-10 h-10" />
             </div>
-            <div className="absolute bottom-[15%] right-[-40%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-7.5s]">
+            <div className="absolute bottom-[15%] right-[-40%] text-[hsl(var(--creative-accent))] animate-[mobile-icon-rotate_3.5s_ease-in-out_infinite] lg:animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-5s]">
               <Rocket className="w-8 h-8" />
-            </div>
-            <div className="absolute bottom-[5%] right-[-25%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-10s]">
-              <Users className="w-9 h-9" />
-            </div>
-            
-            {/* ADDITIONAL ICONS - More scattered placement */}
-            <div className="absolute top-[65%] left-[-20%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-11s]">
-              <ShoppingCart className="w-8 h-8" />
-            </div>
-            <div className="absolute top-[15%] left-[-15%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-12s]">
-              <Layers className="w-8 h-8" />
-            </div>
-            <div className="absolute top-[70%] right-[-25%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-13s]">
-              <Zap className="w-8 h-8" />
-            </div>
-            <div className="absolute bottom-[55%] right-[-20%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-14s]">
-              <Award className="w-9 h-9" />
-            </div>
-            <div className="absolute top-[85%] left-[-15%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-15s]">
-              <PieChart className="w-8 h-8" />
-            </div>
-            <div className="absolute bottom-[65%] left-[-10%] text-[hsl(var(--creative-accent))] animate-[float-icon_8s_ease-in-out_infinite] [animation-delay:-16s]">
-              <Network className="w-8 h-8" />
             </div>
           </div>
         </div>

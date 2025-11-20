@@ -92,6 +92,31 @@ All colors MUST be HSL.
   50% { transform: translateY(-25px) rotate(15deg); }
 }
 
+/* Mobile-specific icon animations for touch devices */
+/* MOBILE PULSE: Subtle pulsing effect that works on touch screens */
+/* EDIT SCALE: Adjust scale values (currently 1 to 1.15) for more/less pulse */
+@keyframes mobile-icon-pulse {
+  0%, 100% { 
+    transform: translateY(0px) scale(1); 
+    opacity: 0.9;
+  }
+  50% { 
+    transform: translateY(-15px) scale(1.15); 
+    opacity: 1;
+  }
+}
+
+/* MOBILE ROTATE: Gentle rotation animation for visual interest */
+/* EDIT ROTATION: Adjust degrees (currently -8deg to 8deg) for more/less rotation */
+@keyframes mobile-icon-rotate {
+  0%, 100% { 
+    transform: rotate(-8deg) translateY(0px); 
+  }
+  50% { 
+    transform: rotate(8deg) translateY(-15px); 
+  }
+}
+
 @keyframes wiggle {
   0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
   25% { transform: translate(-51%, -49%) rotate(-2deg); }
