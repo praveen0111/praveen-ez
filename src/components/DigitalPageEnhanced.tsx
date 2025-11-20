@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
 /**
@@ -25,6 +26,28 @@ interface DigitalPageEnhancedProps {
 }
 
 const DigitalPageEnhanced = ({ onGoHome, onSwitchToCreative, onNavigateToContact }: DigitalPageEnhancedProps) => {
+  // State for animated progress bars
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Trigger animation on page load
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Skills data configuration
+  // ADD/EDIT SKILLS: Modify this array to add or change skills and proficiency levels
+  const skills = [
+    { name: "Adobe Premiere Pro", level: 95, color: "hsl(267, 55%, 53%)" },
+    { name: "Adobe After Effects", level: 90, color: "hsl(266, 44%, 47%)" },
+    { name: "Adobe Photoshop", level: 85, color: "hsl(206, 100%, 50%)" },
+    { name: "Product Design & UX", level: 88, color: "hsl(330, 85%, 55%)" },
+    { name: "Marketing Strategy", level: 82, color: "hsl(210, 100%, 50%)" },
+    { name: "3D Modeling & AR", level: 75, color: "hsl(180, 70%, 50%)" },
+    { name: "Project Management", level: 80, color: "hsl(150, 70%, 50%)" },
+    { name: "Data Analytics", level: 78, color: "hsl(30, 85%, 55%)" }
+  ];
+
   // Experience data configuration
   // ADD/EDIT EXPERIENCES: Modify this array to add or change experiences
   const experiences = [
@@ -158,7 +181,49 @@ const DigitalPageEnhanced = ({ onGoHome, onSwitchToCreative, onNavigateToContact
               </div>
             </div>
 
-            {/* SECTION 2: Education (Now at the bottom) */}
+            {/* SECTION 2: Skills Visualization (New Section) */}
+            <div className="mb-12 md:mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-[hsl(var(--digital-accent))]">
+                Skills & Expertise
+              </h2>
+              
+              {/* Skills Grid */}
+              {/* CUSTOMIZE: Adjust animation timing in transition-all duration-* */}
+              <div className="bg-white p-6 md:p-8 rounded-xl shadow-md border-2 border-gray-200">
+                <div className="space-y-6">
+                  {skills.map((skill, index) => (
+                    <div key={skill.name} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm md:text-base font-semibold text-gray-900">
+                          {skill.name}
+                        </span>
+                        <span className="text-sm md:text-base font-bold" style={{ color: skill.color }}>
+                          {skill.level}%
+                        </span>
+                      </div>
+                      
+                      {/* Progress Bar Container */}
+                      {/* CUSTOMIZE BAR: Change height (h-*) or rounded corners (rounded-*) */}
+                      <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                        {/* Animated Progress Bar Fill */}
+                        {/* ANIMATION: Fills from 0 to skill.level% on page load */}
+                        {/* TIMING: Each bar has a staggered delay based on index */}
+                        <div
+                          className="h-full rounded-full transition-all duration-1000 ease-out"
+                          style={{
+                            width: isVisible ? `${skill.level}%` : '0%',
+                            backgroundColor: skill.color,
+                            transitionDelay: `${index * 100}ms`
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* SECTION 3: Education (Now at the bottom) */}
             <div className="mb-8">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-[hsl(var(--digital-accent))]">
                 Education

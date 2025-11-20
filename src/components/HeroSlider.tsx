@@ -11,6 +11,7 @@ const HeroSlider = ({
 }: HeroSliderProps) => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0
@@ -40,6 +41,15 @@ const HeroSlider = ({
       requestAnimationFrame(animate);
     }
   }, []);
+  // Parallax scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
@@ -110,8 +120,13 @@ const HeroSlider = ({
           </Button>
         </div>
 
-        {/* Filmmaker Character */}
-        <div ref={creativeCharRef} className="hidden lg:block absolute left-[30%] top-1/2 -translate-y-1/2 w-48 h-64">
+        {/* Filmmaker Character - Parallax effect */}
+        {/* PARALLAX: Character moves slower than scroll (0.3x speed) */}
+        <div 
+          ref={creativeCharRef} 
+          className="hidden lg:block absolute left-[30%] top-1/2 -translate-y-1/2 w-48 h-64"
+          style={{ transform: `translate(-50%, -50%) translateY(${scrollY * 0.3}px)` }}
+        >
           <div className="animate-[float_6s_ease-in-out_infinite]">
             {/* Character SVG */}
             <svg viewBox="0 0 200 280" className="w-full h-full my-[100px] py-[100px] px-0 rounded-xl mx-0">
@@ -187,8 +202,13 @@ const HeroSlider = ({
           </Button>
         </div>
 
-        {/* Business Character */}
-        <div ref={digitalCharRef} className="hidden lg:block absolute right-[30%] top-1/2 -translate-y-1/2 w-48 h-64">
+        {/* Business Character - Parallax effect */}
+        {/* PARALLAX: Character moves slower than scroll (0.3x speed) */}
+        <div 
+          ref={digitalCharRef} 
+          className="hidden lg:block absolute right-[30%] top-1/2 -translate-y-1/2 w-48 h-64"
+          style={{ transform: `translate(-50%, -50%) translateY(${scrollY * 0.3}px)` }}
+        >
           <div className="animate-[float_6s_ease-in-out_infinite]">
             {/* Character SVG */}
             <svg viewBox="0 0 200 280" className="w-full h-full my-[100px] py-[100px] mx-[100px]">
