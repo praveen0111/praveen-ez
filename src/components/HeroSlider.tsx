@@ -206,7 +206,7 @@ const HeroSlider = ({
         {/* PARALLAX: Character moves slower than scroll (0.3x speed) */}
         <div 
           ref={digitalCharRef} 
-          className="hidden lg:block absolute right-[30%] top-1/2 -translate-y-1/2 w-48 h-64"
+          className="hidden lg:block absolute right-[25%] top-1/2 -translate-y-1/2 w-48 h-64"
           style={{ transform: `translate(-50%, -50%) translateY(${scrollY * 0.3}px)` }}
         >
           <div className="animate-[float_6s_ease-in-out_infinite]">
