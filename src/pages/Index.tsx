@@ -1,63 +1,54 @@
 import { useState } from "react";
-import HeroSlider from "@/components/HeroSlider";
-import CreativePageEnhanced from "@/components/CreativePageEnhanced";
-import DigitalPageEnhanced from "@/components/DigitalPageEnhanced";
+import ParticleBackground from "@/components/ParticleBackground";
+import HeroSection from "@/components/HeroSection";
+import CreativePage from "@/components/CreativePage";
+import DigitalPage from "@/components/DigitalPage";
 import ContactPage from "@/components/ContactPage";
+import MobileMenu from "@/components/MobileMenu";
 
 type PageView = "home" | "creative" | "digital" | "contact";
 
 const Index = () => {
   const [currentView, setCurrentView] = useState<PageView>("home");
 
-  const handleNavigateCreative = () => {
-    setCurrentView("creative");
-    window.scrollTo(0, 0);
-  };
-
-  const handleNavigateDigital = () => {
-    setCurrentView("digital");
-    window.scrollTo(0, 0);
-  };
-
-  const handleGoHome = () => {
-    setCurrentView("home");
-    window.scrollTo(0, 0);
-  };
-
-  const handleNavigateToContact = () => {
-    setCurrentView("contact");
+  const handleNavigate = (view: PageView) => {
+    setCurrentView(view);
     window.scrollTo(0, 0);
   };
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background relative">
+      {/* Particle Background - only on home */}
+      {currentView === "home" && <ParticleBackground />}
+      
+      {/* Mobile Menu */}
+      <MobileMenu onNavigate={handleNavigate} currentView={currentView} />
+
       {currentView === "home" && (
-        <HeroSlider 
-          onNavigateCreative={handleNavigateCreative}
-          onNavigateDigital={handleNavigateDigital}
+        <HeroSection
+          onNavigateCreative={() => handleNavigate("creative")}
+          onNavigateDigital={() => handleNavigate("digital")}
         />
       )}
-      
+
       {currentView === "creative" && (
-        <CreativePageEnhanced 
-          onGoHome={handleGoHome}
-          onSwitchToDigital={handleNavigateDigital}
-          onNavigateToContact={handleNavigateToContact}
+        <CreativePage
+          onGoHome={() => handleNavigate("home")}
+          onSwitchToDigital={() => handleNavigate("digital")}
+          onNavigateToContact={() => handleNavigate("contact")}
         />
       )}
-      
+
       {currentView === "digital" && (
-        <DigitalPageEnhanced 
-          onGoHome={handleGoHome}
-          onSwitchToCreative={handleNavigateCreative}
-          onNavigateToContact={handleNavigateToContact}
+        <DigitalPage
+          onGoHome={() => handleNavigate("home")}
+          onSwitchToCreative={() => handleNavigate("creative")}
+          onNavigateToContact={() => handleNavigate("contact")}
         />
       )}
 
       {currentView === "contact" && (
-        <ContactPage 
-          onGoHome={handleGoHome}
-        />
+        <ContactPage onGoHome={() => handleNavigate("home")} />
       )}
     </main>
   );

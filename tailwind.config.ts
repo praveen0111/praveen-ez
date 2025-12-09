@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -47,61 +52,28 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        creative: {
-          bg: "hsl(var(--creative-bg))",
-          fg: "hsl(var(--creative-fg))",
-          accent: "hsl(var(--creative-accent))",
-        },
-        digital: {
-          bg: "hsl(var(--digital-bg))",
-          fg: "hsl(var(--digital-fg))",
-          accent: "hsl(var(--digital-accent))",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        mono: ["Space Mono", "monospace"],
+      },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
-        },
-        blink: {
-          "0%, 90%, 100%": { opacity: "1" },
-          "93%, 97%": { opacity: "0" },
-        },
-        "divider-pulse": {
-          "0%, 100%": {
-            boxShadow: "0 0 20px hsl(var(--creative-accent)), 0 0 40px hsl(var(--creative-accent) / 0.5)",
-          },
-          "50%": {
-            boxShadow: "0 0 30px hsl(var(--creative-accent)), 0 0 60px hsl(var(--creative-accent) / 0.7)",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        float: "float 6s ease-in-out infinite",
-        "float-icon": "float-icon 8s ease-in-out infinite",
-        wiggle: "wiggle 0.5s ease-in-out infinite",
-        fadeIn: "fadeIn 0.5s ease-in-out",
-        blink: "blink 4s ease-in-out infinite",
-        "divider-pulse": "divider-pulse 2s ease-in-out infinite",
       },
     },
   },
