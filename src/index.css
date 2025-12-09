@@ -2,163 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    /* Portfolio Design System */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Nothing-inspired monochrome palette */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
     
-    /* Creative Section (Dark) - Enhanced vibrancy */
-    /* EDIT COLORS: Adjust these HSL values for creative side theme */
-    --creative-bg: 240 60% 12%;  /* Deep navy-blue for dramatic effect */
-    --creative-fg: 48 96% 89%;   /* Warm light text for contrast */
-    --creative-accent: 330 85% 55%; /* Vibrant magenta accent */
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 100%;
     
-    /* Digital Section (Light) - Enhanced vibrancy */
-    /* EDIT COLORS: Adjust these HSL values for digital side theme */
-    --digital-bg: 200 25% 97%;    /* Clean light background */
-    --digital-fg: 240 60% 12%;    /* Dark text for readability */
-    --digital-accent: 210 100% 50%; /* Bright blue accent */
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 100%;
     
-    /* Character Colors */
-    --skin-tone: 30 100% 86%;     /* Warmer skin tone */
-    --hair-dark: 220 26% 14%;
-    --suit-gray: 215 25% 27%;
-    --shirt-light: 210 20% 94%;
-    --tie-red: 0 69% 48%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
     
-    /* Software Logo Colors */
-    --premiere: 267 55% 53%;
-    --after-effects: 266 44% 47%;
-    --photoshop: 206 100% 50%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 100%;
     
-    /* Hover & Interactive States */
-    /* EDIT THESE: Customize hover effects for tiles */
-    --tile-hover-bg: 330 85% 65%;
-    --tile-hover-shadow: 330 85% 55%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222 47% 11%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 330 85% 55%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-  }
-}
-
-/* Portfolio-specific animations */
-
-/* Character blink animation - Makes characters feel alive */
-/* EDIT TIMING: Adjust duration (currently 4s) to change blink frequency */
-/* EDIT EFFECT: Modify opacity values to change blink intensity */
-@keyframes blink {
-  0%, 90%, 100% { opacity: 1; }  /* Eyes open most of the time */
-  93%, 97% { opacity: 0; }       /* Quick blink */
-}
-
-/* Float animation for characters */
-@keyframes float {
-  0%, 100% { transform: translate(-50%, -50%); }
-  50% { transform: translate(-50%, -47%); }
-}
-
-/* Floating icon animation */
-@keyframes float-icon {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-25px) rotate(15deg); }
-}
-
-/* Mobile-specific icon animations for touch devices */
-/* MOBILE PULSE: Subtle pulsing effect that works on touch screens */
-/* EDIT SCALE: Adjust scale values (currently 1 to 1.15) for more/less pulse */
-@keyframes mobile-icon-pulse {
-  0%, 100% { 
-    transform: translateY(0px) scale(1); 
-    opacity: 0.9;
-  }
-  50% { 
-    transform: translateY(-15px) scale(1.15); 
-    opacity: 1;
-  }
-}
-
-/* MOBILE ROTATE: Gentle rotation animation for visual interest */
-/* EDIT ROTATION: Adjust degrees (currently -8deg to 8deg) for more/less rotation */
-@keyframes mobile-icon-rotate {
-  0%, 100% { 
-    transform: rotate(-8deg) translateY(0px); 
-  }
-  50% { 
-    transform: rotate(8deg) translateY(-15px); 
-  }
-}
-
-@keyframes wiggle {
-  0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
-  25% { transform: translate(-51%, -49%) rotate(-2deg); }
-  75% { transform: translate(-49%, -51%) rotate(2deg); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Slider divider pulse animation - Makes divider more noticeable */
-/* EDIT GLOW: Change shadow size/color for different glow effects */
-@keyframes divider-pulse {
-  0%, 100% { 
-    box-shadow: 0 0 20px hsl(var(--creative-accent)), 0 0 40px hsl(var(--creative-accent) / 0.5);
-  }
-  50% { 
-    box-shadow: 0 0 30px hsl(var(--creative-accent)), 0 0 60px hsl(var(--creative-accent) / 0.7);
-  }
-}
-
-/* Carousel slide animation */
-@keyframes slide-in {
-  from { 
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  to { 
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-out {
-  from { 
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to { 
-    opacity: 0;
-    transform: translateX(-100%);
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+    
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 18%;
+    --input: 0 0% 12%;
+    --ring: 0 0% 100%;
+    
+    --radius: 0px;
+    
+    /* Dot matrix */
+    --dot-size: 1px;
+    --dot-gap: 20px;
+    --dot-color: 0 0% 20%;
+    
+    /* Grid */
+    --grid-color: 0 0% 12%;
+    --grid-size: 48px;
   }
 }
 
@@ -166,10 +50,193 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
+  
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Space Mono', monospace;
     overscroll-behavior: none;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+  }
+}
+
+@layer components {
+  .dot-matrix {
+    background-image: radial-gradient(
+      circle,
+      hsl(var(--dot-color)) var(--dot-size),
+      transparent var(--dot-size)
+    );
+    background-size: var(--dot-gap) var(--dot-gap);
+  }
+  
+  .grid-bg {
+    background-image: 
+      linear-gradient(hsl(var(--grid-color)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-color)) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+  }
+  
+  .mono-card {
+    @apply bg-card border border-border transition-all duration-300;
+  }
+  
+  .mono-card:hover {
+    @apply border-foreground;
+    box-shadow: 0 0 30px hsla(0, 0%, 100%, 0.05);
+  }
+  
+  .btn-mono {
+    @apply px-6 py-3 bg-foreground text-background font-mono text-xs uppercase tracking-[0.2em];
+    @apply transition-all duration-300 border border-foreground;
+  }
+  
+  .btn-mono:hover {
+    @apply bg-transparent text-foreground;
+  }
+  
+  .btn-outline {
+    @apply px-6 py-3 bg-transparent text-foreground font-mono text-xs uppercase tracking-[0.2em];
+    @apply border border-foreground transition-all duration-300;
+  }
+  
+  .btn-outline:hover {
+    @apply bg-foreground text-background;
+  }
+  
+  .text-glitch {
+    position: relative;
+  }
+  
+  .text-glitch::before,
+  .text-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  
+  .text-glitch:hover::before {
+    animation: glitch-1 0.2s linear;
+    opacity: 0.8;
+    color: hsl(var(--foreground));
+    z-index: -1;
+  }
+  
+  .text-glitch:hover::after {
+    animation: glitch-2 0.2s linear;
+    opacity: 0.8;
+    color: hsl(var(--foreground));
+    z-index: -1;
+  }
+  
+  .scanlines {
+    position: relative;
+  }
+  
+  .scanlines::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsla(0, 0%, 0%, 0.03) 2px,
+      hsla(0, 0%, 0%, 0.03) 4px
+    );
+    pointer-events: none;
+  }
+}
+
+/* Keyframes */
+@keyframes glitch-1 {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-2 {
+  0% { transform: translate(0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(2px, 2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(-2px, 2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-blink {
+  animation: blink 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.4s ease-out forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  :root {
+    --dot-gap: 16px;
+    --grid-size: 32px;
   }
 }
